@@ -3,6 +3,8 @@ package com.examen.web;
 import com.examen.modelo.Aerolinea;
 import com.examen.servicio.AerolineaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,8 +21,8 @@ public class AerolineaController {
     }
 
     @GetMapping("/todos")
-    public List<Aerolinea> obtenerTodo(){
-        return aerolineaServicio.buscarTodo();
+    public ResponseEntity<List<Aerolinea>> obtenerTodo(){
+        return new ResponseEntity<>(aerolineaServicio.buscarTodo(), HttpStatus.OK);
     }
 
     @GetMapping("/buscarid/{ruc}")
@@ -29,13 +31,15 @@ public class AerolineaController {
     }
 
     @PostMapping("/guardar/")
-    public void guardar(@RequestBody Aerolinea aerolinea){
+    public ResponseEntity guardar(@RequestBody Aerolinea aerolinea){
         aerolineaServicio.guardar(aerolinea);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping("/eliminar/{ruc}")
-    public void eliminar(@PathVariable String ruc){
+    public ResponseEntity eliminar(@PathVariable String ruc){
         aerolineaServicio.eliminar(ruc);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }

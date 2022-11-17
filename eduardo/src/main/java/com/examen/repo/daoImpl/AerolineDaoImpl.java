@@ -3,12 +3,11 @@ package com.examen.repo.daoImpl;
 import com.examen.modelo.Aerolinea;
 import com.examen.modelo.mapper.AerolineaMapper;
 import com.examen.repo.dao.AerolineaDao;
-import com.examen.web.Configuracion;
+import com.examen.config.Configuracion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.servlet.view.AbstractUrlBasedView;
 
 import java.util.HashMap;
 import java.util.List;
